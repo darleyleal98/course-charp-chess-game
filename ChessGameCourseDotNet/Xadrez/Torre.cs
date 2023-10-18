@@ -11,7 +11,7 @@ namespace ChessGameCourseDotNet.Xadrez
         public Torre(TabuleiroDeXadrez tabuleiro, Cor cor) : base(tabuleiro, cor) { }
 
         public override string ToString() => "T";
-        private bool podeMover(Posicao posicao)
+        private bool PodeMover(Posicao posicao)
         {
             Peca peca = TabuleiroDeXadrez.Peca(posicao);
             return peca == null || peca.Cor != Cor;
@@ -25,7 +25,7 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // acima
             posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
                 if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
@@ -37,7 +37,7 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // abaixo
             posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
                 if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
@@ -49,7 +49,7 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // direita
             posicao.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
                 if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
@@ -61,7 +61,7 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // esquerda
             posicao.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
                 if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)

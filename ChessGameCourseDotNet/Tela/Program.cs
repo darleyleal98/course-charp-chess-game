@@ -12,7 +12,6 @@ namespace ChessGameCourseDotNet.Tela
             try
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
-
                 while (!partida.Terminada)
                 {
                     try
@@ -25,7 +24,7 @@ namespace ChessGameCourseDotNet.Tela
                         Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
                         partida.ValidarPosicaoDeOrigem(origem);
 
-                        bool[,] posicoesPossiveis = partida.Tabuleiro.peca(origem).movimentosPossiveis();
+                        bool[,] posicoesPossiveis = partida.Tabuleiro.Peca(origem).MovimentosPossiveis();
 
                         Console.Clear();
                         Tela.imprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
@@ -37,20 +36,19 @@ namespace ChessGameCourseDotNet.Tela
 
                         partida.realizaJogada(origem, destino);
                     }
-                    catch (TabuleiroException e)
+                    catch (TabuleiroException exception)
                     {
-                        Console.WriteLine(e.Message);
+                        Console.WriteLine(exception.Message);
                         Console.ReadLine();
                     }
                 }
                 Console.Clear();
                 Tela.ImprimirPartida(partida);
             }
-            catch (TabuleiroException e)
+            catch (TabuleiroException exception)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(exception.Message);
             }
-
             Console.ReadLine();
         }
     }
