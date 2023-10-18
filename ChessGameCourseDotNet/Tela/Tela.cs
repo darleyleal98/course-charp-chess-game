@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using ChessGameCourseDotNet.Tela;
+using ChessGameCourseDotNet.Tabuleiro;
+using ChessGameCourseDotNet.Xadrez;
 using tabuleiro;
-using xadrez;
 
-namespace xadrez_console
+namespace ChessGameCourseDotNet.Tela
 {
     class Tela
     {
-
         public static void imprimirPartida(PartidaDeXadrez partida)
         {
             imprimirTabuleiro(partida.tab);

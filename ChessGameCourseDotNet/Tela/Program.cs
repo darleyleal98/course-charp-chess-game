@@ -1,9 +1,9 @@
 ﻿using ChessGameCourseDotNet.Tela;
+using ChessGameCourseDotNet.Tabuleiro;
+using ChessGameCourseDotNet.Xadrez;
 using System;
-using tabuleiro;
-using xadrez;
 
-namespace xadrez_console
+namespace ChessGameCourseDotNet.Tela
 {
     class Program
     {

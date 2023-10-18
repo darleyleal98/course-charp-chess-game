@@ -1,4 +1,7 @@
-﻿namespace tabuleiro
+﻿using ChessGameCourseDotNet.Tabuleiro;
+using ChessGameCourseDotNet.Xadrez;
+
+namespace ChessGameCourseDotNet.Tabuleiro
 {
     public enum Cor
     {

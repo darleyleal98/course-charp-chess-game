@@ -1,6 +1,8 @@
 ﻿using System;
+using ChessGameCourseDotNet.Tabuleiro;
+using ChessGameCourseDotNet.Xadrez;
 
-namespace tabuleiro
+namespace ChessGameCourseDotNet.Tabuleiro
 {
     class TabuleiroException : Exception
     {
