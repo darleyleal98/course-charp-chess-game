@@ -9,10 +9,7 @@ namespace ChessGameCourseDotNet.Xadrez
     {
         public Cavalo(TabuleiroDeXadrez tabuleiro, Cor cor) : base(tabuleiro, cor) { }
 
-        public override string ToString()
-        {
-            return "C";
-        }
+        public override string ToString() => "C";
 
         private bool PodeMover(Posicao posicao)
         {

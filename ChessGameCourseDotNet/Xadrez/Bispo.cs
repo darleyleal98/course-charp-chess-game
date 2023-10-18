@@ -9,10 +9,7 @@ namespace ChessGameCourseDotNet.Xadrez
     {
         public Bispo(TabuleiroDeXadrez tabuleiro, Cor cor) : base(tabuleiro, cor) { }
 
-        public override string ToString()
-        {
-            return "B";
-        }
+        public override string ToString() => "B";
 
         private bool PodeMover(Posicao posicao)
         {
@@ -73,7 +70,6 @@ namespace ChessGameCourseDotNet.Xadrez
                 }
                 posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna - 1);
             }
-
             return matriz;
         }
     }

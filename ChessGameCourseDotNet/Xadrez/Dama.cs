@@ -9,10 +9,7 @@ namespace ChessGameCourseDotNet.Xadrez
     {
         public Dama(TabuleiroDeXadrez tabuleiro, Cor cor) : base(tabuleiro, cor) { }
 
-        public override string ToString()
-        {
-            return "D";
-        }
+        public override string ToString() => "D";
 
         private bool PodeMover(Posicao posicao)
         {
