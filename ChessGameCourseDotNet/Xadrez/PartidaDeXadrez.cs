@@ -5,7 +5,7 @@ using ChessGameCourseDotNet.Xadrez;
 
 namespace ChessGameCourseDotNet.Xadrez
 {
-    class PartidaDeXadrez
+    public class PartidaDeXadrez
     {
         public TabuleiroDeXadrez Tabuleiro { get; private set; }
         public int turno { get; private set; }

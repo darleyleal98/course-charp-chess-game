@@ -8,76 +8,70 @@ namespace ChessGameCourseDotNet.Xadrez
     public class Torre : Peca
     {
 
-        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
-        {
-        }
+        public Torre(TabuleiroDeXadrez tabuleiro, Cor cor) : base(tabuleiro, cor) { }
 
-        public override string ToString()
+        public override string ToString() => "T";
+        private bool podeMover(Posicao posicao)
         {
-            return "T";
-        }
-
-        private bool podeMover(Posicao pos)
-        {
-            Peca p = TabuleiroDeXadrez.Peca(pos);
-            return p == null || p.Cor != Cor;
+            Peca peca = TabuleiroDeXadrez.Peca(posicao);
+            return peca == null || peca.Cor != Cor;
         }
 
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
+            bool[,] matriz = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
 
-            Posicao pos = new Posicao(0, 0);
+            Posicao posicao = new Posicao(0, 0);
 
             // acima
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
-                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
+                matriz[posicao.Linha, posicao.Coluna] = true;
+                if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
                 {
                     break;
                 }
-                pos.Linha = pos.Linha - 1;
+                posicao.Linha = posicao.Linha - 1;
             }
 
             // abaixo
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
-                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
+                matriz[posicao.Linha, posicao.Coluna] = true;
+                if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
                 {
                     break;
                 }
-                pos.Linha = pos.Linha + 1;
+                posicao.Linha = posicao.Linha + 1;
             }
 
             // direita
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
-                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
+                matriz[posicao.Linha, posicao.Coluna] = true;
+                if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
                 {
                     break;
                 }
-                pos.Coluna = pos.Coluna + 1;
+                posicao.Coluna = posicao.Coluna + 1;
             }
 
             // esquerda
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+            while (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
-                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
+                matriz[posicao.Linha, posicao.Coluna] = true;
+                if (TabuleiroDeXadrez.Peca(posicao) != null && TabuleiroDeXadrez.Peca(posicao).Cor != Cor)
                 {
                     break;
                 }
-                pos.Coluna = pos.Coluna - 1;
+                posicao.Coluna = posicao.Coluna - 1;
             }
 
-            return mat;
+            return matriz;
         }
     }
 }

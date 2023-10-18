@@ -7,114 +7,106 @@ namespace ChessGameCourseDotNet.Xadrez
 {
     public class Rei : Peca
     {
+        private PartidaDeXadrez Partida;
 
-        private PartidaDeXadrez partida;
-
-        public Rei(Tabuleiro tab, Cor cor, PartidaDeXadrez partida) : base(tab, cor)
+        public Rei(TabuleiroDeXadrez tabuleiro, Cor cor, PartidaDeXadrez partida) : base(tabuleiro, cor)
         {
-            this.partida = partida;
+            Partida = partida;
         }
-
-        public override string ToString()
+        public override string ToString() => "R";
+        private bool podeMover(Posicao posica)
         {
-            return "R";
+            Peca peca = TabuleiroDeXadrez.Peca(posica);
+            return peca == null || peca.Cor != Cor;
         }
-
-        private bool podeMover(Posicao pos)
+        private bool testeTorreParaRoque(Posicao posicao)
         {
-            Peca p = TabuleiroDeXadrez.Peca(pos);
-            return p == null || p.Cor != Cor;
+            Peca peca = TabuleiroDeXadrez.Peca(posicao);
+            return peca != null && peca is Torre && peca.Cor == Cor && peca.QuantidadeDeMovimentos == 0;
         }
-
-        private bool testeTorreParaRoque(Posicao pos)
-        {
-            Peca p = TabuleiroDeXadrez.Peca(pos);
-            return p != null && p is Torre && p.Cor == Cor && p.QuantidadeDeMovimentos == 0;
-        }
-
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
+            bool[,] matriz = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
 
-            Posicao pos = new Posicao(0, 0);
+            Posicao posicao = new Posicao(0, 0);
 
             // acima
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // ne
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // direita
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // se
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // abaixo
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // so
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // esquerda
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
             // no
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
-            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+            if (TabuleiroDeXadrez.PosicaoValida(posicao) && podeMover(posicao))
             {
-                mat[pos.Linha, pos.Coluna] = true;
+                matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             // #jogadaespecial roque
-            if (QuantidadeDeMovimentos == 0 && !partida.xeque)
+            if (QuantidadeDeMovimentos == 0 && !Partida.xeque)
             {
                 // #jogadaespecial roque pequeno
-                Posicao posT1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
-                if (testeTorreParaRoque(posT1))
+                Posicao posicaoT1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
+                if (testeTorreParaRoque(posicaoT1))
                 {
-                    Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
-                    Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
-                    if (TabuleiroDeXadrez.Peca(p1) == null && TabuleiroDeXadrez.Peca(p2) == null)
+                    Posicao posicao1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    Posicao posicao2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
+                    if (TabuleiroDeXadrez.Peca(posicao1) == null && TabuleiroDeXadrez.Peca(posicao2) == null)
                     {
-                        mat[Posicao.Linha, Posicao.Coluna + 2] = true;
+                        matriz[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }
                 }
                 // #jogadaespecial roque grande
-                Posicao posT2 = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
-                if (testeTorreParaRoque(posT2))
+                Posicao posicaoT2 = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
+                if (testeTorreParaRoque(posicaoT2))
                 {
-                    Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                    Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
-                    Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
-                    if (TabuleiroDeXadrez.Peca(p1) == null && TabuleiroDeXadrez.Peca(p2) == null && TabuleiroDeXadrez.Peca(p3) == null)
+                    Posicao posicao1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao posicao2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
+                    Posicao posicao3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
+                    if (TabuleiroDeXadrez.Peca(posicao1) == null && TabuleiroDeXadrez.Peca(posicao2) == null && TabuleiroDeXadrez.Peca(posicao3) == null)
                     {
-                        mat[Posicao.Linha, Posicao.Coluna - 2] = true;
+                        matriz[Posicao.Linha, Posicao.Coluna - 2] = true;
                     }
                 }
             }
-            return mat;
+            return matriz;
         }
     }
 }
