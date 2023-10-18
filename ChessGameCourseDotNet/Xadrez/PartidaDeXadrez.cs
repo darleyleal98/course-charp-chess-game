@@ -43,6 +43,7 @@ namespace ChessGameCourseDotNet.Xadrez
             // #jogadaespecial roque pequeno
             if (peca is Rei && destino.Coluna == origem.Coluna + 2)
             {
+<<<<<<< HEAD
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna + 3);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna + 1);
                 Peca Torre = Tabuleiro.RetirarPeca(origemTorre);
@@ -53,11 +54,13 @@ namespace ChessGameCourseDotNet.Xadrez
             // #jogadaespecial roque grande
             if (peca is Rei && destino.Coluna == origem.Coluna - 2)
             {
+<<<<<<< HEAD
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna - 4);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna - 1);
                 Peca Torre = Tabuleiro.RetirarPeca(origemTorre);
                 Torre.IncrementarQuantidadeDeMovimentos();
                 Tabuleiro.ColocarPeca(Torre, destinoTorre);
+
             }
 
             // #jogadaespecial en passant
@@ -96,6 +99,7 @@ namespace ChessGameCourseDotNet.Xadrez
             // #jogadaespecial roque pequeno
             if (peca is Rei && destino.Coluna == origem.Coluna + 2)
             {
+<<<<<<< HEAD
                 Posicao origemDaTorre = new Posicao(origem.Linha, origem.Coluna + 3);
                 Posicao DestinoDaTorre = new Posicao(origem.Linha, origem.Coluna + 1);
                 Peca torre = Tabuleiro.RetirarPeca(DestinoDaTorre);
@@ -106,11 +110,14 @@ namespace ChessGameCourseDotNet.Xadrez
             // #jogadaespecial roque grande
             if (peca is Rei && destino.Coluna == origem.Coluna - 2)
             {
+<<<<<<< HEAD
                 Posicao origemDaTorre = new Posicao(origem.Linha, origem.Coluna - 4);
                 Posicao DestinoDaTorre = new Posicao(origem.Linha, origem.Coluna - 1);
                 Peca torre = Tabuleiro.RetirarPeca(DestinoDaTorre);
                 torre.DecrementarQuantidadeDeMovimentos();
                 Tabuleiro.ColocarPeca(torre, origemDaTorre);
+=======
+
             }
             // #jogadaespecial en passant
             if (peca is Peao)
@@ -142,6 +149,8 @@ namespace ChessGameCourseDotNet.Xadrez
             }
             Peca peca = Tabuleiro.Peca(destino);
 
+<<<<<<< HEAD
+=======
             if (peca is Peao)
             {
                 if ((peca.Cor == Cor.Branca && destino.Linha == 0) || (peca.Cor == Cor.Preta && destino.Linha == 7))

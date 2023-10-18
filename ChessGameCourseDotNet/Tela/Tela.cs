@@ -29,6 +29,10 @@ namespace ChessGameCourseDotNet.Tela
                 Console.WriteLine("Vencedor: " + Partida.JogadorAtual);
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8463df5bd89b6027e4b8328e061ec15e4ad20a94
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
         {
             Console.WriteLine("Peças capturadas:");
