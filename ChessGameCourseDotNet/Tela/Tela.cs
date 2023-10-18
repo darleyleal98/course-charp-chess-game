@@ -115,7 +115,7 @@ namespace ChessGameCourseDotNet.Tela
             }
             else
             {
-                if (peca.cor == Cor.Branca)
+                if (peca.Cor == Cor.Branca)
                 {
                     Console.Write(peca);
                 }

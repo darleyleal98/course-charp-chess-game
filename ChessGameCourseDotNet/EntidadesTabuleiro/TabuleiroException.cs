@@ -4,10 +4,8 @@ using ChessGameCourseDotNet.Xadrez;
 
 namespace ChessGameCourseDotNet.Tabuleiro
 {
-    class TabuleiroException : Exception
+    public class TabuleiroException : Exception
     {
-        public TabuleiroException(string msg) : base(msg)
-        {
-        }
+        public TabuleiroException(string mensagem) : base(mensagem) { }
     }
 }

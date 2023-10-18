@@ -1,31 +1,31 @@
 ﻿using ChessGameCourseDotNet.Tabuleiro;
 using ChessGameCourseDotNet.Xadrez;
+using System.Text;
 
 namespace ChessGameCourseDotNet.Tabuleiro
 {
-    class Posicao
+    public class Posicao
     {
-
-        public int linha { get; set; }
-        public int coluna { get; set; }
+        public int Linha { get; set; }
+        public int Coluna { get; set; }
 
         public Posicao(int linha, int coluna)
         {
-            this.linha = linha;
-            this.coluna = coluna;
+            Linha = linha;
+            Coluna = coluna;
         }
 
-        public void definirValores(int linha, int coluna)
+        public void DefinirValores(int linha, int coluna)
         {
-            this.linha = linha;
-            this.coluna = coluna;
+            Linha = linha;
+            Coluna = coluna;
         }
 
         public override string ToString()
         {
-            return linha
-                + ", "
-                + coluna;
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"{Linha}, {Coluna}");
+            return stringBuilder.ToString();
         }
     }
 }
