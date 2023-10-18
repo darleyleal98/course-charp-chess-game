@@ -19,22 +19,22 @@ namespace ChessGameCourseDotNet.Xadrez
 
         private bool podeMover(Posicao pos)
         {
-            Peca p = Tabuleiro.Peca(pos);
+            Peca p = TabuleiroDeXadrez.Peca(pos);
             return p == null || p.Cor != Cor;
         }
 
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
+            bool[,] mat = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
 
             Posicao pos = new Posicao(0, 0);
 
             // acima
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-                if (Tabuleiro.Peca(pos) != null && Tabuleiro.Peca(pos).Cor != Cor)
+                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
                 {
                     break;
                 }
@@ -43,10 +43,10 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // abaixo
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-                if (Tabuleiro.Peca(pos) != null && Tabuleiro.Peca(pos).Cor != Cor)
+                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
                 {
                     break;
                 }
@@ -55,10 +55,10 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // direita
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            while (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-                if (Tabuleiro.Peca(pos) != null && Tabuleiro.Peca(pos).Cor != Cor)
+                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
                 {
                     break;
                 }
@@ -67,10 +67,10 @@ namespace ChessGameCourseDotNet.Xadrez
 
             // esquerda
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            while (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            while (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-                if (Tabuleiro.Peca(pos) != null && Tabuleiro.Peca(pos).Cor != Cor)
+                if (TabuleiroDeXadrez.Peca(pos) != null && TabuleiroDeXadrez.Peca(pos).Cor != Cor)
                 {
                     break;
                 }

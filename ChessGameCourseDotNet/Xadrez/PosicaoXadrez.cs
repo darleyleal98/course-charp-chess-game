@@ -16,7 +16,7 @@ namespace ChessGameCourseDotNet.Xadrez
             this.linha = linha;
         }
 
-        public Posicao toPosicao()
+        public Posicao ToPosicao()
         {
             return new Posicao(8 - linha, coluna - 'a');
         }

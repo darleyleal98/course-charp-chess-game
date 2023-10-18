@@ -9,14 +9,14 @@ namespace ChessGameCourseDotNet.Tela
 {
     class Tela
     {
-        public static void imprimirPartida(PartidaDeXadrez partida)
+        public static void ImprimirPartida(PartidaDeXadrez partida)
         {
-            imprimirTabuleiro(partida.tab);
+            imprimirTabuleiro(partida.Tabuleiro);
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
-            if (!partida.terminada)
+            if (!partida.Terminada)
             {
                 Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
                 if (partida.xeque)
@@ -98,7 +98,7 @@ namespace ChessGameCourseDotNet.Tela
             Console.BackgroundColor = fundoOriginal;
         }
 
-        public static PosicaoXadrez lerPosicaoXadrez()
+        public static PosicaoXadrez LerPosicaoXadrez()
         {
             string s = Console.ReadLine();
             char coluna = s[0];

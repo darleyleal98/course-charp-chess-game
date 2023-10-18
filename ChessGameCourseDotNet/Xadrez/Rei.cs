@@ -22,67 +22,67 @@ namespace ChessGameCourseDotNet.Xadrez
 
         private bool podeMover(Posicao pos)
         {
-            Peca p = Tabuleiro.Peca(pos);
+            Peca p = TabuleiroDeXadrez.Peca(pos);
             return p == null || p.Cor != Cor;
         }
 
         private bool testeTorreParaRoque(Posicao pos)
         {
-            Peca p = Tabuleiro.Peca(pos);
+            Peca p = TabuleiroDeXadrez.Peca(pos);
             return p != null && p is Torre && p.Cor == Cor && p.QuantidadeDeMovimentos == 0;
         }
 
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
+            bool[,] mat = new bool[TabuleiroDeXadrez.Linhas, TabuleiroDeXadrez.Colunas];
 
             Posicao pos = new Posicao(0, 0);
 
             // acima
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // ne
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // direita
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // se
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // abaixo
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // so
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // esquerda
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // no
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(pos) && podeMover(pos))
+            if (TabuleiroDeXadrez.PosicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
@@ -96,7 +96,7 @@ namespace ChessGameCourseDotNet.Xadrez
                 {
                     Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
                     Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
-                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
+                    if (TabuleiroDeXadrez.Peca(p1) == null && TabuleiroDeXadrez.Peca(p2) == null)
                     {
                         mat[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }
@@ -108,7 +108,7 @@ namespace ChessGameCourseDotNet.Xadrez
                     Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
                     Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
                     Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
-                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
+                    if (TabuleiroDeXadrez.Peca(p1) == null && TabuleiroDeXadrez.Peca(p2) == null && TabuleiroDeXadrez.Peca(p3) == null)
                     {
                         mat[Posicao.Linha, Posicao.Coluna - 2] = true;
                     }

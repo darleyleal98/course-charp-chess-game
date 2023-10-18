@@ -3,13 +3,13 @@ using ChessGameCourseDotNet.Xadrez;
 
 namespace ChessGameCourseDotNet.Tabuleiro
 {
-    public class Tabuleiro
+    public class TabuleiroDeXadrez
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
         private Peca[,] pecas;
 
-        public Tabuleiro(int linhas, int colunas)
+        public TabuleiroDeXadrez(int linhas, int colunas)
         {
             Linhas = linhas;
             Colunas = colunas;
