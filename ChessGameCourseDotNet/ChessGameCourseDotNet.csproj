@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Xadrez\" />
-    <Folder Include="Propriedades\" />
-    <Folder Include="Tabuleiro\" />
   </ItemGroup>
 
 </Project>
